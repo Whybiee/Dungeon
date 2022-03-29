@@ -12,7 +12,7 @@ local function damageTick()
     if character and character:FindFirstChild("IsDead") then
      game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("Q","Spell")
      game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("E","Spell")
-        character.IsDead:Destroy()--godmode
+        --character.IsDead:Destroy()--godmode
     end
     local mob = mobs:FindFirstChildOfClass("Model")
     if not mob then
