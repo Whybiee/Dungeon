@@ -10,6 +10,8 @@ task.wait()
 local function damageTick()
     local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
     if character and character:FindFirstChild("IsDead") then
+     game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("Q","Spell")
+     game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("E","Spell")
         --character.IsDead:Destroy()--godmode
     end
     local mob = mobs:FindFirstChildOfClass("Model")
@@ -23,8 +25,7 @@ local function damageTick()
     rootPart.CFrame = targetPart.CFrame*CFrame.new(0,7,3)
     remote:FireServer(arg1,targetPart.Position)
 end
+
 while game:GetService("RunService").RenderStepped:Wait() do
     pcall(damageTick)--I cant be asked to fix .Character
-    game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("Q","Spell")
-     game:GetService("ReplicatedStorage").ClientServerNetwork.MagicFunction:InvokeServer("E","Spell")
 end
